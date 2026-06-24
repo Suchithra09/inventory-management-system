@@ -1,0 +1,32 @@
+package com.inventory.inventory_system.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.*;
+
+import lombok.RequiredArgsConstructor;
+
+import com.inventory.inventory_system.entity.Product;
+import com.inventory.inventory_system.service.ProductService;
+
+@RestController
+@RequestMapping("/products")
+@RequiredArgsConstructor
+
+public class ProductController {
+
+    private final Product service = new Product();
+
+    @PostMapping
+    public Product addProduct(
+            @RequestBody Product product
+    ) {
+        return service.save(product);
+    }
+
+    @GetMapping
+    public List<Product> getProducts() {
+        return service.getAll();
+    }
+
+}

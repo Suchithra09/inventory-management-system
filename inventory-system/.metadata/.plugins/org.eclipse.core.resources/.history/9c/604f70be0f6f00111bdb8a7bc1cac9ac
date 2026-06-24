@@ -1,0 +1,5 @@
+package com.inventory.inventory_system.repository;
+
+public interface a {
+
+}

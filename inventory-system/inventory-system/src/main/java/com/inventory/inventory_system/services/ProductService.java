@@ -1,0 +1,141 @@
+package com.inventory.inventory_system.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
+
+import com.inventory.inventory_system.dto.DashboardResponse;
+import com.inventory.inventory_system.entity.Product;
+import com.inventory.inventory_system.repository.ProductRepository;
+
+@Service
+public class ProductService {
+
+    @Autowired
+    private ProductRepository repo;
+
+    public Product save(Product product) {
+        return repo.save(product);
+    }
+
+    public List<Product> getAll() {
+        return repo.findAll();
+    }
+
+    public Product getById(Long id) {
+        return repo.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Product not found"));
+    }
+
+    public Product update(Long id, Product product) {
+
+        Product existing = getById(id);
+
+        existing.setName(product.getName());
+        existing.setCategory(product.getCategory());
+        existing.setPrice(product.getPrice());
+        existing.setQuantity(product.getQuantity());
+        existing.setSupplier(product.getSupplier());
+
+        return repo.save(existing);
+    }
+
+    public void delete(Long id) {
+        repo.deleteById(id);
+    }
+
+    public List<Product> search(String name) {
+        return repo.findByNameContainingIgnoreCase(name);
+    }
+
+    public Page<Product> paginate(
+            int page,
+            int size
+    ) {
+        return repo.findAll(
+                PageRequest.of(page, size)
+        );
+    }
+
+    public List<Product> lowStock() {
+        return repo.findByQuantityLessThan(5);
+    }
+    public DashboardResponse dashboard() {
+
+        List<Product> products =
+                repo.findAll();
+
+        long totalProducts =
+                products.size();
+
+        int totalQuantity =
+                products.stream()
+                        .mapToInt(
+                                Product::getQuantity
+                        )
+                        .sum();
+
+        long lowStock =
+                products.stream()
+                        .filter(
+                                p ->
+                                p.getQuantity() < 5
+                        )
+                        .count();
+
+        double value =
+                products.stream()
+                        .mapToDouble(
+                                p ->
+                                p.getPrice()
+                                *
+                                p.getQuantity()
+                        )
+                        .sum();
+
+        return new DashboardResponse(
+                totalProducts,
+                totalQuantity,
+                lowStock,
+                value
+        );
+
+    }
+    @Autowired
+    private EmailService emailService;
+    public Product save1(
+            Product product
+    ) {
+
+        Product saved =
+                repo.save(
+                        product
+                );
+
+        if(
+            saved.getQuantity()
+            <
+            5
+        ){
+
+            emailService
+            .sendLowStockEmail(
+
+                    saved.getName(),
+
+                    saved.getQuantity()
+
+            );
+
+        }
+
+        return saved;
+
+    }
+
+}
