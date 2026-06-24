@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+# Inventory Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Full Stack Inventory Management System built using React, Spring Boot, and MySQL.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+✅ Add Product  
+✅ View Product List  
+✅ Search Product  
+✅ Update Product  
+✅ Delete Product  
+✅ Dashboard Analytics  
+✅ Loading Indicator  
+✅ Validation  
+✅ Responsive UI  
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Frontend:
+- React JS
+- Axios
+- CSS
 
-### `npm test`
+Backend:
+- Spring Boot
+- Spring Data JPA
+- REST API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Database:
+- MySQL
 
-### `npm run build`
+Tools:
+- VS Code
+- Eclipse
+- Postman
+- GitHub
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Architecture
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React Frontend
+↓
+Spring Boot REST API
+↓
+MySQL Database
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Screenshots
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Dashboard
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Dashboard](./src/screenshots/Dashboard.PNG)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### Add Product
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Add Product](./src/screenshots/Add-product.PNG)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### Product List
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Product List](./src/screenshots/Product-list.PNG)
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Search Product
 
-### Making a Progressive Web App
+![Search](./src/screenshots/Search-Product.PNG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Backend
 
-### Deployment
+Clone repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+git clone YOUR_GITHUB_LINK
+```
 
-### `npm run build` fails to minify
+Go to backend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd backend
+```
+
+Run:
+
+```bash
+mvn spring-boot:run
+```
+
+Backend:
+
+```text
+http://localhost:8080
+```
+
+---
+
+### Frontend
+
+Go to frontend:
+
+```bash
+cd frontend
+```
+
+Install:
+
+```bash
+npm install
+```
+
+Run:
+
+```bash
+npm start
+```
+
+Frontend:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## API Endpoints
+
+GET
+
+```text
+/products
+```
+
+POST
+
+```text
+/products
+```
+
+PUT
+
+```text
+/products/{id}
+```
+
+DELETE
+
+```text
+/products/{id}
+```
+
+---
+
+## Future Improvements
+
+- Authentication
+- Export Reports
+- Email Notifications
+- Deployment
+
+---
+
+## Author
+
+Suchithra H B
