@@ -50,32 +50,6 @@ MySQL Database
 
 ---
 
-## Screenshots
-
-### Dashboard
-
-![Dashboard](./src/screenshots/Dashboard.PNG)
-
----
-
-### Add Product
-
-![Add Product](./src/screenshots/Add-product.PNG)
-
----
-
-### Product List
-
-![Product List](./src/screenshots/Product-list.PNG)
-
----
-
-### Search Product
-
-![Search](./src/screenshots/Search-Product.PNG)
-
----
-
 ## Installation
 
 ### Backend
@@ -83,7 +57,7 @@ MySQL Database
 Clone repository:
 
 ```bash
-git clone YOUR_GITHUB_LINK
+git clone https://github.com/Suchithra09/inventory-management-system
 ```
 
 Go to backend:
